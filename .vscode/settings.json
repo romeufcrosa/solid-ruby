@@ -1,0 +1,6 @@
+{
+    "solargraph.useBundler": true,
+    "ruby.lint": {
+        "rubocop": true
+    }
+}
