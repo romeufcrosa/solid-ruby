@@ -26,7 +26,7 @@ RSpec.describe 'SOLID' do
     # tip: You'll probably have to change this initialization as well
     let(:logger) { Logger.new(:raw, :slack) }
 
-    it 'should be open for extension closed for modification' do
+    it 'means a class should be open for extension but closed for modification' do
       # the actual logger object should not implement the deliver method in OCP
       expect(logger).to_not receive(:deliver)
 
@@ -45,7 +45,7 @@ RSpec.describe 'SOLID' do
     let(:child_class) { AdminStatistic.new(user) }
     let(:parent_class) { UserStatistic.new(user) }
 
-    it 'expects parent instances be replaceable with its children without
+    it 'means parent instances should be replaceable with its children without
      modifying the type of data returned' do
       expect(parent_class.posts).to eq(posts)
       expect(child_class.posts).to eq(posts.select(&:popular?))
@@ -56,7 +56,7 @@ RSpec.describe 'SOLID' do
     let(:person) { Person.new }
     let(:staff) { Staff.new }
 
-    it 'should segregate the interfaces according to responsibilities' do
+    it 'means you should segregate the interfaces according to responsibilities' do
       person_coffee_machine = person.instance_variable_get(:@coffee_machine)
       staff_coffee_machine = staff.instance_variable_get(:@coffee_machine)
 
