@@ -4,7 +4,7 @@ This repo aims to serve as a learning platform for SOLID principles via RSpec te
 
 ## How to run?
 
-There is just on spec file so just run `rspec spec/solid_test` and wait for the results
+There is just one spec file so just run `rspec spec/solid_test` and wait for the results
 
 ## What to do?
 
