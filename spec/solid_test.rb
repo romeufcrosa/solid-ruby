@@ -15,7 +15,7 @@ RSpec.describe 'SOLID' do
 
     it 'should only do one thing' do
       expect(frm).to receive(:generate_report!)
-      expect(frm).to_not receive(:send_report)
+      expect(frm).to_not respond_to(:send_report)
 
       frm.simulate
     end
