@@ -14,18 +14,8 @@ class FolderReportMailer
     }.join("\n")
   end
 
-  def send_report
-    Mailer.deliver(
-      from: 'generator@example.com',
-      to: @recipient,
-      subject: 'File folder report',
-      body: @report
-    )
-  end
-
   # This method only exists for demonstration purposes
   def simulate
     generate_report!
-    send_report
   end
 end

@@ -1,7 +1,10 @@
 # Violation of the Interface Segregation Principle in Ruby
 # Tip: The solution to fix this is in the name of the principle itself
 # ... maybe you should segregate interfaces ;)
+
 class CoffeeMachineInterface
+end
+class CoffeeInterface
   def select_drink_type
       # select drink type logic
   end
@@ -17,6 +20,9 @@ class CoffeeMachineInterface
   def brew_coffee
      # brew coffee logic
   end
+end
+
+class MaintenanceMachineInterface
 
   def clean_coffee_machine
     # clean coffee machine logic
@@ -40,7 +46,7 @@ end
 # One class should contain only the method(s) it uses.
 class Person
   def initialize
-    @coffee_machine = CoffeeMachineInterface.new
+    @coffee_machine = CoffeeInterface.new
   end
 
   def make_coffee
@@ -56,7 +62,7 @@ end
 # One class should contain only the method(s) it uses.
 class Staff
   def initialize
-    @coffee_machine = CoffeeMachineInterface.new
+    @coffee_machine = MaintenanceMachineInterface.new
   end
 
   def service

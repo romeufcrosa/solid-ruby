@@ -6,12 +6,8 @@ class Printer
     @data = data
   end
 
-  def print_pdf
-    PdfFormatter.new.format(@data)
-  end
-
-  def print_html
-    HtmlFormatter.new.format(@data)
+  def print(formatter:)
+    formatter.format(@data)
   end
 end
 

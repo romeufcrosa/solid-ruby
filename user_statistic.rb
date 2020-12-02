@@ -11,6 +11,10 @@ end
 
 class AdminStatistic < UserStatistic
   def posts
+    user_posts = super.select(&:popular?)
+  end
+
+  def pretty_posts
     user_posts = super
 
     string = ''

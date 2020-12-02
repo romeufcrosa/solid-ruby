@@ -5,6 +5,7 @@ require_relative '../user'
 require_relative '../post'
 require_relative '../coffee_machine'
 require_relative '../printer'
+require_relative '../slack'
 require 'rspec'
 
 RSpec.describe 'SOLID' do
@@ -24,11 +25,12 @@ RSpec.describe 'SOLID' do
   context 'Open-Closed Principle' do
     # Slack intentionally doesn't exist yet, think how you can add it
     # tip: You'll probably have to change this initialization as well
-    let(:logger) { Logger.new(:raw, :slack) }
+    let(:slack) { Slack.new('from', 'to')}
+    let(:logger) { Logger.new(:raw, slack) }
 
     it 'means a class should be open for extension but closed for modification' do
       # the actual logger object should not implement the deliver method in OCP
-      expect(logger).to_not receive(:deliver)
+      expect(logger).not_to receive(:deliver)
 
       logger.log 'Hello darkness, my old friend'
     end

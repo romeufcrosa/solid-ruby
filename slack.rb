@@ -1,10 +1,10 @@
-class Smser
+class Slack
   def initialize(from, to)
     @from = from,
     @to = to
   end
 
   def deliver(body:)
-    puts "sms sent to #{@to}"
+    puts "Slack message sent to #{@to}"
   end
 end
